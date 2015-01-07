@@ -1,4 +1,6 @@
-var phrases = [];
+var phrases = [
+    'Your password must contain kittens'
+];
 
 /**
  * Return all phrases available

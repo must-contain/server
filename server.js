@@ -6,6 +6,10 @@ var phrases = require('./phrases');
 var app = express();
 
 app.get('/', function (req, res) {
+    res.redirect('/all');
+});
+
+app.get('/all', function (req, res) {
     res.json(phrases.all());
 });
 

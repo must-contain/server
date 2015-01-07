@@ -1,5 +1,5 @@
 {
-  "name": "must-contain",
+  "name": "must-contain-server",
   "version": "0.1.0",
   "private": "true",
   "dependencies": {
