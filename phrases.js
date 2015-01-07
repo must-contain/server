@@ -1,3 +1,5 @@
+var Promise = require('bluebird');
+
 var phrases = [
     'Your password must contain kittens'
 ];
