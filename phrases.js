@@ -6,7 +6,7 @@ var phrases = [
  * Return all phrases available
  */
 module.exports.all = function all () {
-    return phrases;
+    return Promise.resolve(phrases);
 };
 
 /**
@@ -25,5 +25,5 @@ module.exports.random = function random (n) {
         taken[x] = --len;
     }
 
-    return result;
+    return Promise.resolve(result);
 };

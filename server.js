@@ -10,11 +10,19 @@ app.get('/', function (req, res) {
 });
 
 app.get('/all', function (req, res) {
-    res.json(phrases.all());
+    phrases.all().then(function (data) {
+        res.json(data);
+    }).catch(function (err) {
+        res.send(500);
+    });
 });
 
 app.get('/random/:num?', function (req, res) {
-    res.json(phrases.random(req.params.num));
+    phrases.random(req.params.num).then(function (data) {
+        res.json(data);
+    }).catch(function (err) {
+        res.send(500);
+    });
 });
 
 app.listen(process.env.PORT);
