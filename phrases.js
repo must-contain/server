@@ -36,7 +36,6 @@ function generateSingleItem (langData, articleType) {
 
     // Select a random article
     var art = selectRandom(arts);
-    console.log(art);
 
     // Choose the suitable noun version
     var nounVer = selectRandom(noun.filter(function (nounVersion) {
