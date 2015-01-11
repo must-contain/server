@@ -1,0 +1,34 @@
+{
+    "base_phrase": "Your password must contain %s.",
+    "join_and_middle": ", ",
+    "join_and_end": " and ",
+    "join_or_middle": ", ",
+    "join_or_end": " or ",
+    "counting_types": ["definite", "indefinite", "numeral"],
+    "plural_definitions": [
+        {"category": "single",   "type": "indefinite", "variant": "normal", "text": "a %s"},
+        {"category": "single",   "type": "indefinite", "variant": "before_a", "text": "an %s"},
+        {"category": "single",   "type": "definite", "text": " the "},
+        {"category": "single",   "type": "numeral", "quantity": 1, "text": "one (1) %s"},
+        {"category": "multiple", "type": "indefinite", "text": "some %s"},
+        {"category": "multiple", "type": "definite", "text": "the %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 2, "text": "two (2) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 3, "text": "three (3) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 4, "text": "four (4) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 5, "text": "five (5) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 6, "text": "six (6) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 7, "text": "seven (7) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 8, "text": "eight (8) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 9, "text": "nine (9) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 10, "text": "ten (10) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 11, "text": "eleven (11) %s"},
+        {"category": "multiple", "type": "numeral", "quantity": 12, "text": "twelve (12) %s"}
+    ],
+    "stand_alone": [
+        "the answer to life, the universe and everything",
+        "the truth, the whole truth, and nothing but the truth"
+    ],
+    "nouns": [
+
+    ]
+}
