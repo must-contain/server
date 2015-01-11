@@ -17,8 +17,47 @@ function generateStandAlone (langData) {
 }
 
 
-function generateSingleItem (langData) {
-    return "X";
+function generateSingleItem (langData, articleType) {
+    // Filter words by article type
+    var nouns = langData.nouns.filter(function (noun) {
+        return noun.some(function (entry) {
+            return (!entry.articles || entry.articles.indexOf(articleType) >= 0);
+        });
+    });
+
+
+    // Select a noun
+    var noun = selectRandom(nouns);
+
+    // Filter articles by article type
+    var arts = langData.articles.filter(function (art) {
+        return art.type == articleType;
+    });
+
+    // Select a random article
+    var art = selectRandom(arts);
+    console.log(art);
+
+    // Choose the suitable noun version
+    var nounVer = selectRandom(noun.filter(function (nounVersion) {
+        return nounVersion.categories.indexOf(art.category) >= 0;
+    }));
+    var word = nounVer.text;
+
+    // Choose the article text
+    var artText;
+    if (typeof art.text === 'string') {
+        artText = art.text;
+    } else {
+        if (nounVer.variant) {
+            artText = art.text[nounVer.variant] || art.text._;
+        } else {
+            artText = art.text._;
+        }
+    }
+
+    // Finished! Construct and return
+    return util.format(artText, word);
 }
 
 
@@ -55,10 +94,16 @@ function generateItemBased (langData) {
         itemCount = 4
     }
 
+    // Select the type of article to use: 20% "any", 80% random
+    var article = null;
+    if (Math.random() <= 0.9) {
+        article = selectRandom(langData.article_types);
+    }
+
     // Now, generate all items
     var items = new Array(itemCount);
     for (var i = 0; i < itemCount; i++) {
-        items[i] = generateSingleItem(langData);
+        items[i] = generateSingleItem(langData, article || selectRandom(langData.article_types));
     }
 
     // Last step is to join using OR / AND

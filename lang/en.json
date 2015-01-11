@@ -4,11 +4,17 @@
     "join_and_end": " and ",
     "join_or_middle": ", ",
     "join_or_end": " or ",
-    "counting_types": ["definite", "indefinite", "numeral"],
-    "plural_definitions": [
-        {"category": "single",   "type": "indefinite", "variant": "normal", "text": "a %s"},
-        {"category": "single",   "type": "indefinite", "variant": "before_a", "text": "an %s"},
-        {"category": "single",   "type": "definite", "text": " the "},
+    "article_types": ["definite", "indefinite", "numeral"],
+    "articles": [
+        {
+            "category": "single",
+            "type": "indefinite",
+            "text": {
+                "_":           "a %s",
+                "start_vowel": "an %s"
+            }
+        },
+        {"category": "single",   "type": "definite", "text": "the %s"},
         {"category": "single",   "type": "numeral", "quantity": 1, "text": "one (1) %s"},
         {"category": "multiple", "type": "indefinite", "text": "some %s"},
         {"category": "multiple", "type": "definite", "text": "the %s"},
@@ -29,6 +35,13 @@
         "the truth, the whole truth, and nothing but the truth"
     ],
     "nouns": [
-
+        [
+            {"categories": ["single"],   "text": "thing"},
+            {"categories": ["multiple"], "text": "things"}
+        ],
+        [
+            {"categories": ["single"],   "text": "ant", "variant": "start_vowel"},
+            {"categories": ["multiple"], "text": "ants"}
+        ]
     ]
 }

@@ -10,7 +10,8 @@ app.get('/random/:lang/:num?', function (req, res) {
     phrases.generate(req.params.num, req.params.lang).then(function (data) {
         res.json(data);
     }).catch(function (err) {
-        res.send(500);
+        res.sendStatus(500);
+        console.dir(err);
     });
 });
 
