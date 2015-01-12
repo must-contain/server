@@ -1,15 +1,21 @@
 #!/usr/bin/env node
 var express = require('express');
-var Keen = require('keen.io');
+var Keen = require('express-keenio');
 
 var config = require('./config');
 var logger = require('./logger');
 var phrases = require('./phrases');
 
 var app = express();
-var keen = Keen.configure(config.keenio);
+
+var keenexpress = Keen.configure({
+    'client': config.keenio
+});
+var keen = keenexpress.client;
 
 app.set('json spaces', 2);
+
+app.use(keenexpress.handleAll())
 
 app.get('/random/:lang/:num?', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
