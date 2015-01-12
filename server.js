@@ -3,10 +3,11 @@ var express = require('express');
 var Keen = require('keen.io');
 
 var config = require('./config');
+var logger = require('./logger');
 var phrases = require('./phrases');
 
 var app = express();
-var keen = new Keen(config.keenio);
+var keen = Keen.configure(config.keenio);
 
 app.set('json spaces', 2);
 
@@ -19,13 +20,17 @@ app.get('/random/:lang/:num?', function (req, res) {
         res.json(data);
     }).catch(function (err) {
         res.sendStatus(500);
-        console.dir(err);
+        logger.error('Error generating phrases', err);
     });
 
     /* Send info of this request to Keen.IO */
     keen.addEvent('req-random', {
         'language': req.params.lang,
         'number': req.params.num
+    }, function (err) {
+        if (err) {
+            logger.warn('Error sending Keen.IO event', err);
+        }
     });
 });
 
