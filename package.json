@@ -1,9 +1,10 @@
 {
   "name": "must-contain-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": "true",
   "dependencies": {
     "bluebird": "^2.6.2",
-    "express": "^4.10.7"
+    "express": "^4.10.7",
+    "keen.io": "^0.1.3"
   }
 }
