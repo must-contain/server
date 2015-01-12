@@ -24,19 +24,10 @@ app.get('/random/:lang/:num?', function (req, res) {
     /* Generate the phrases, then return */
     phrases.generate(req.params.num, req.params.lang).then(function (data) {
         res.json(data);
+
     }).catch(function (err) {
         res.sendStatus(500);
         logger.error('Error generating phrases', err);
-    });
-
-    /* Send info of this request to Keen.IO */
-    keen.addEvent('req-random', {
-        'language': req.params.lang,
-        'number': req.params.num
-    }, function (err) {
-        if (err) {
-            logger.warn('Error sending Keen.IO event', err);
-        }
     });
 });
 

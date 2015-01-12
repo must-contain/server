@@ -1,6 +1,6 @@
 {
   "name": "must-contain-server",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": "true",
   "dependencies": {
     "bluebird": "^2.6.2",
