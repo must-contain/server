@@ -11,7 +11,7 @@ var app = express();
 var keenexpress = Keen.configure({
     'client': config.keenio
 });
-var keen = keenexpress.client;
+var keen = keenexpress.keenClient;
 
 app.set('json spaces', 2);
 
