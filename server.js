@@ -6,6 +6,8 @@ var phrases = require('./phrases');
 
 var app = express();
 
+app.set('json spaces', 2);
+
 app.get('/random/:lang/:num?', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
