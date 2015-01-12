@@ -7,6 +7,9 @@ var phrases = require('./phrases');
 var app = express();
 
 app.get('/random/:lang/:num?', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
     phrases.generate(req.params.num, req.params.lang).then(function (data) {
         res.json(data);
     }).catch(function (err) {
