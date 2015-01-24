@@ -358,15 +358,15 @@
             {"categories": ["multiple"], "text": "things"}
         ],
         [
-            {"categories": ["single"],   "text": "leprechaun"},
+            {"categories": ["single"],   "articles": ["indefinite"], "text": "leprechaun"},
             {"categories": ["multiple"], "text": "leprechauns"}
         ],
         [
-            {"categories": ["single"],   "text": "unicorn"},
+            {"categories": ["single"],   "articles": ["indefinite"], "text": "unicorn"},
             {"categories": ["multiple"], "text": "unicorns"}
         ],
         [
-            {"categories": ["single"],   "text": "milk brand"},
+            {"categories": ["single"],   "articles": ["indefinite"], "text": "milk brand"},
             {"categories": ["multiple"], "text": "milk brands"}
         ],
         [
