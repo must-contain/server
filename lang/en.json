@@ -14,21 +14,22 @@
                 "start_vowel": "an %s"
             }
         },
-        {"category": "single",   "type": "definite", "text": "the %s"},
-        {"category": "single",   "type": "numeral", "quantity": 1, "text": "one (1) %s"},
-        {"category": "multiple", "type": "indefinite", "text": "%s"},
-        {"category": "multiple", "type": "definite", "text": "the %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 2, "text": "two (2) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 3, "text": "three (3) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 4, "text": "four (4) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 5, "text": "five (5) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 6, "text": "six (6) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 7, "text": "seven (7) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 8, "text": "eight (8) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 9, "text": "nine (9) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 10, "text": "ten (10) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 11, "text": "eleven (11) %s"},
-        {"category": "multiple", "type": "numeral", "quantity": 12, "text": "twelve (12) %s"}
+        {"category": "single",      "type": "definite", "text": "the %s"},
+        {"category": "single",      "type": "numeral", "quantity": 1, "text": "one (1) %s"},
+        {"category": "multiple",    "type": "indefinite", "text": "%s"},
+        {"category": "multiple",    "type": "definite", "text": "the %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 2, "text": "two (2) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 3, "text": "three (3) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 4, "text": "four (4) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 5, "text": "five (5) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 6, "text": "six (6) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 7, "text": "seven (7) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 8, "text": "eight (8) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 9, "text": "nine (9) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 10, "text": "ten (10) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 11, "text": "eleven (11) %s"},
+        {"category": "multiple",    "type": "numeral", "quantity": 12, "text": "twelve (12) %s"},
+        {"category": "uncountable", "type": "indefinite", "text": "%s"}
     ],
     "stand_alone": {
         "cc_by_sa": [
@@ -61,7 +62,7 @@
             "a stunning reversal of fortune in the fourth act",
             "golden-green ginkgo leaves",
             "conch fritters and a handful of sand",
-            "\n(\u256f\u00b0\u25a1\u00b0\uff09\u256f\ufe35 \u253b\u2501\u253b",
+            "(\u256f\u00b0\u25a1\u00b0\uff09\u256f\ufe35 \u253b\u2501\u253b",
             "a false alarm",
             "three halos, a clothes hanger, and a length of black velvet",
             "two truths and a lie",
@@ -363,6 +364,13 @@
         [
             {"categories": ["single"],   "text": "unicorn"},
             {"categories": ["multiple"], "text": "unicorns"}
+        ],
+        [
+            {"categories": ["single"],   "text": "milk brand"},
+            {"categories": ["multiple"], "text": "milk brands"}
+        ],
+        [
+            {"categories": ["uncountable"], "text": "dirt"}
         ]
     ]
 }
