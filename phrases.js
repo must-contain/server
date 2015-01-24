@@ -138,11 +138,11 @@ function generateItemBased (langData, options) {
 
 function generateOne (langData, options) {
     // 10% chance of "stand-alone" phrase
-    //if (Math.random() <= 0.1) {
+    if (Math.random() <= 0.1) {
         return generateStandAlone(langData, options);
-    //} else {
-    //    return generateItemBased(langData, options);
-    //}
+    } else {
+        return generateItemBased(langData, options);
+    }
 }
 
 
