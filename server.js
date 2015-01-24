@@ -9,14 +9,17 @@ var phrases = require('./phrases');
 
 var app = express();
 
-var keenexpress = Keen.configure({
-    'client': config.keenio
-});
-var keen = keenexpress.keenClient;
+if (config.keenio.url) {
+    var keenexpress = Keen.configure({
+        'client': config.keenio
+    });
+    var keen = keenexpress.keenClient;
+
+    app.use(keenexpress.handleAll());
+}
 
 app.set('json spaces', 2);
 
-app.use(keenexpress.handleAll())
 app.use(morgan('dev'));
 
 app.get('/random/:lang/:num?', function (req, res) {
@@ -28,8 +31,10 @@ app.get('/random/:lang/:num?', function (req, res) {
 
     logger.debug(JSON.stringify(options));
 
+    var num = Math.min(100, req.params.num || req.query.num || 5);
+
     /* Generate the phrases, then return */
-    phrases.generate(req.params.num || 5, req.params.lang, options).then(function (data) {
+    phrases.generate(num, req.params.lang, options).then(function (data) {
         res.json(data);
 
     }).catch(function (err) {

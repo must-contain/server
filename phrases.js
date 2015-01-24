@@ -115,27 +115,29 @@ function generateItemBased (langData, options) {
     logger.silly('generateItemBased(...)');
 
     // First, decide how many items:
-    // - 1 item (40%)
-    // - 2 items (30%)
-    // - 3 items (20%)
-    // - 4 items (10%)
-    var itemCount = 0;
+    // - 4 items (40%)
+    // - 3 items (30%)
+    // - 2 items (20%)
+    // - 1 item (10%)
+    var itemCount = 1;
     var rn = Math.random();
     if (rn <= 0.4) {
-        itemCount = 1;
+        itemCount = 4;
     } else if (rn <= 0.7) {
-        itemCount = 2;
-    } else if (rn <= 0.9) {
         itemCount = 3;
-    } else {
-        itemCount = 4
+    } else if (rn <= 0.9) {
+        itemCount = 2;
     }
+
+    logger.silly(':: itemCount=%s', itemCount);
 
     // Select the type of article to use: 20% "any", 80% random
     var article = null;
     if (Math.random() <= 0.9) {
         article = selectRandom(langData.article_types);
     }
+
+    logger.silly(':: articleType=%s', article || 'any');
 
     // Now, generate all items
     var items = new Array(itemCount);
@@ -161,6 +163,7 @@ function generateItemBased (langData, options) {
 
 function generateOne (langData, options) {
     logger.silly('generateOne(...)');
+
     // 10% chance of "stand-alone" phrase
     if (Math.random() <= 0.1) {
         return generateStandAlone(langData, options);
@@ -174,7 +177,7 @@ function generateOne (langData, options) {
  * Return multiple random phrases
  */
 module.exports.generate = function generate (num, lang, options) {
-    if (! lang in languages) {
+    if (!(lang in languages)) {
         throw new Exception();
     }
 

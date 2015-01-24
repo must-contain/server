@@ -370,7 +370,16 @@
             {"categories": ["multiple"], "text": "milk brands"}
         ],
         [
-            {"categories": ["uncountable"], "text": "dirt"}
+            {"categories": ["uncountable"], "articles": ["indefinite"], "text": "dirt"}
+        ],
+        [
+            {"categories": ["uncountable"], "articles": ["indefinite"], "text": "water"}
+        ],
+        [
+            {"categories": ["uncountable"], "articles": ["indefinite"], "text": "lava"}
+        ],
+        [
+            {"categories": ["single"], "articles": ["definite"], "text": "holy grail"}
         ]
     ]
 }
