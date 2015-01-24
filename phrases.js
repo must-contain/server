@@ -4,15 +4,30 @@ var util = require('util');
 var languages = require('./lang');
 
 
-function selectRandom (arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+function selectRandom () {
+    var totalLength = 0;
+    for (var i = 0; i < arguments.length; i++) {
+        totalLength += arguments[i].length;
+    }
+
+    var index = Math.floor(Math.random() * totalLength);
+
+    for (var i = 0; i < arguments.length; i++) {
+        if (index < arguments[i].length) {
+            return arguments[i][index];
+        }
+
+        index -= arguments[i].length;
+    }
 }
 
 
-function generateStandAlone (langData) {
+function generateStandAlone (langData, options) {
     return util.format(
         langData.base_phrase,
-        selectRandom(langData.stand_alone)
+        options.nc
+            ? selectRandom(langData.stand_alone.cc_by_sa, langData.stand_alone.cc_by_nc)
+            : selectRandom(langData.stand_alone.cc_by_sa)
     );
 }
 
@@ -75,7 +90,7 @@ function joinItems (items, middle, last) {
 }
 
 
-function generateItemBased (langData) {
+function generateItemBased (langData, options) {
     // First, decide how many items:
     // - 1 item (40%)
     // - 2 items (30%)
@@ -121,20 +136,20 @@ function generateItemBased (langData) {
 }
 
 
-function generateOne (langData) {
+function generateOne (langData, options) {
     // 10% chance of "stand-alone" phrase
-    if (Math.random() <= 0.1) {
-        return generateStandAlone(langData);
-    } else {
-        return generateItemBased(langData);
-    }
+    //if (Math.random() <= 0.1) {
+        return generateStandAlone(langData, options);
+    //} else {
+    //    return generateItemBased(langData, options);
+    //}
 }
 
 
 /**
  * Return multiple random phrases
  */
-module.exports.generate = function generate (num, lang) {
+module.exports.generate = function generate (num, lang, options) {
     if (! lang in languages) {
         throw new Exception();
     }
@@ -145,7 +160,7 @@ module.exports.generate = function generate (num, lang) {
     for (var i = 0; i < num; i++) {
         promises[i] = new Promise(function (accept, reject) {
             try {
-                accept(generateOne(usedLangData));
+                accept(generateOne(usedLangData, options));
             } catch (exc) {
                 reject(exc);
             }

@@ -21,8 +21,13 @@ app.get('/random/:lang/:num?', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
+    var options = {};
+    options.nc = !!(req.query.nc && req.query.nc == 'true');
+
+    logger.debug(options);
+
     /* Generate the phrases, then return */
-    phrases.generate(req.params.num, req.params.lang).then(function (data) {
+    phrases.generate(req.params.num || 5, req.params.lang, options).then(function (data) {
         res.json(data);
 
     }).catch(function (err) {
